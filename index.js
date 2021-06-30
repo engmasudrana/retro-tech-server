@@ -28,12 +28,11 @@ client.connect(err => {
         const { email, password } = req.body
 
         if (email === defaultEmail && password === defaultPassword) {
-            return res.status(200).json({ user: { name: "something" } })
+            res.send({status: true})
         }
-
-        return res.status(400).json({
-            message: "Invalid Email or Password"
-        })
+        else{
+            res.send({status: false})  
+        }
     })
 
     // add new Post API
